@@ -9,9 +9,7 @@ use Inertia\Inertia;
 Route::middleware('auth')->group(function () {
 
     Route::get('/', function () {
-        return Inertia::render('home', [
-            'user' => Auth::user(),
-        ]);
+        return Inertia::render('home');
     })->name('home');
 });
 

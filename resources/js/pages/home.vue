@@ -2,17 +2,13 @@
 import { User } from '@/types';
 import { Head, router } from '@inertiajs/vue3';
 import { Button } from '@/components/ui/button';
-import { onMounted } from 'vue';
 
-const { user } = defineProps<{ user: User }>()
+const { auth } = defineProps<{ auth: { user: User } }>()
 
 function logout() {
     router.get('/logout')
 }
 
-onMounted(() => {
-    console.log(user)
-})
 </script>
 
 <template>
@@ -23,7 +19,7 @@ onMounted(() => {
     </Head>
 
     <main>
-        <Button v-if="user" @click="logout()">logout</Button>
+        <Button v-if="auth.user" @click="logout()">logout</Button>
         hello world!
     </main>
 </template>
